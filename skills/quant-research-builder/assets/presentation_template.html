@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --bg: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --code-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .paper-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .paper-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .hook {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.95;
+        }
+
+        section {
+            background: var(--bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            color: var(--text);
+        }
+
+        .methodology-box {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .metrics-table th,
+        .metrics-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .metrics-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .metrics-table tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        .visualization {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .visualization img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .visualization-caption {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        pre {
+            background: var(--code-bg);
+            border-radius: 6px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+
+        .code-section {
+            margin-top: 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .badge.secondary {
+            background: var(--text-secondary);
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{TITLE}}</h1>
+            <a href="{{ARXIV_LINK}}" class="paper-link" target="_blank">📄 View Original Paper on arXiv</a>
+            <p class="hook">{{HOOK}}</p>
+        </header>
+
+        <section id="summary">
+            <h2>Executive Summary</h2>
+            <p>{{SUMMARY}}</p>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology Overview</h2>
+            <div class="methodology-box">
+                {{METHODOLOGY}}
+            </div>
+        </section>
+
+        <section id="implementation">
+            <h2>Implementation Details</h2>
+            <p><span class="badge">Dataset</span> {{DATASET}}</p>
+            <p><span class="badge secondary">Runtime</span> {{RUNTIME}}</p>
+            
+            <h3>Key Parameters</h3>
+            {{PARAMETERS}}
+            
+            <h3>Simplifications</h3>
+            {{SIMPLIFICATIONS}}
+        </section>
+
+        <section id="results">
+            <h2>Results & Visualizations</h2>
+            
+            {{VISUALIZATIONS}}
+            
+            <h3>Performance Metrics</h3>
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        {{METRICS_HEADERS}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{METRICS_ROWS}}
+                </tbody>
+            </table>
+            
+            <h3>Analysis</h3>
+            {{ANALYSIS}}
+        </section>
+
+        <section id="code" class="code-section">
+            <h2>Complete Implementation</h2>
+            <p>Full Python implementation of the core algorithm:</p>
+            <pre><code class="language-python">{{CODE}}</code></pre>
+        </section>
+
+        <section id="conclusions">
+            <h2>Conclusions & Future Work</h2>
+            <h3>Key Findings</h3>
+            {{FINDINGS}}
+            
+            <h3>Potential Improvements</h3>
+            {{IMPROVEMENTS}}
+            
+            <h3>Extensions to Explore</h3>
+            {{EXTENSIONS}}
+        </section>
+
+        <footer>
+            Generated for Penn x Anthropic Hackathon | Powered by Claude
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>
